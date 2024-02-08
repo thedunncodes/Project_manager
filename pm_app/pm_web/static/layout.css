@@ -1,0 +1,193 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "acumin-pro","Acumin Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    /* background-color: rgb(168, 212, 237); */
+    background-image: url('https://images.rawpixel.com/image_600/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0xODMta3VsLTM1LmpwZw.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(0.3125rem);
+    height: 100vh;
+}
+/* <----------------------------------HEADER CSS------------------------------------> */
+.pm-header {
+    background-color: white;
+    border-raius: 1.2rem;
+    height: 2.95rem;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: .4rem;
+    box-shadow: 0.0625rem 0.0625rem 0.3125rem 0.0625rem rgb(202, 201, 201);
+}
+
+.pm-header > div {
+    height: 2.95rem;
+    flex: 1;
+    
+}
+
+.pm-logo-base {
+    height: 2.95rem;
+}
+.pm-logo-base > img {
+    max-width: 21rem;
+    max-height: 3.125rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding-left: 1rem;
+}
+
+.pm-link-base {
+    margin-left: 3rem;
+} 
+
+.pm-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-auto-rows: 1.875rem; */
+    height: 100%;
+    grid-gap: 0.625rem;
+}
+.pm-links a {    
+    text-align: center; 
+    list-style-type: none;
+    text-decoration: none;
+    cursor: pointer;
+    height: auto;
+    padding: 0.9375rem 0 0.9375rem 0;
+    color: rgb(28, 28, 28);
+    
+}
+
+.pm-links a:hover {
+    border-radius: 0.3125rem;
+    box-shadow: 0.0625rem 0.0625rem 0.3125rem 0.3125rem gainsboro;
+}
+
+.pm-auth-base {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.625rem;
+    justify-content: end;
+    padding: 0 0.3rem 0 0.3rem;
+}
+
+.pm-log-out {
+    grid-column: 3 / 4;
+    align-self: center;
+    text-align: center;
+    /* padding: 0.9375rem 0 0.9375rem 0; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.pm-log-out a {
+    /* margin-left: auto; */
+    cursor: pointer;
+    width: 100%;
+    padding: 0.9375rem 0 0.9375rem 0;
+    text-decoration: none;
+    color: rgb(28, 28, 28);
+}
+
+.pm-log-out a:hover {
+    color: white;
+    border-radius: 2.5rem;
+    box-shadow: 0.0625rem 0.0625rem 0.3125rem 0.3125rem gainsboro;
+    background-color: rgb(244, 2, 2, 0.7);
+}
+
+.pm-auth {
+    justify-self: end;
+    grid-column: 4 / 5;
+}
+.pm-auth img {
+    width: 2.9rem;
+    height: 2.9rem;
+    /* width: 100%;
+    height: 100%; */
+    border-radius: 50%;
+    background-color: blueviolet;
+}
+/* <----------------------------------PM-BODY CSS------------------------------------> */
+
+.pm-body {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    height: 89%;
+    
+}
+
+.pm-body-host1 {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.pm-menu {
+    display: flex;
+    width: 15%;
+    padding: 10px;
+    background-color: white;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+    border-radius: 10px;
+    box-shadow: 1px 3px 5px 1px rgb(202, 201, 201), -1px -2px 5px rgb(202, 201, 201);
+}
+
+.pm-menu ul {
+    display: grid;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.pm-menu ul li {
+    
+}
+
+.pm-menu ul li a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: rgb(28, 28, 28);
+}
+
+.pm-menu ul li a:hover {
+    background-color: aqua;
+    color: white;
+}
+
+.pm-search {
+    border: 1px solid red;
+    height: 2.5rem;
+}
+
+.pm-search form {
+    background-color: blue;
+}
+
+.pm-page {
+    width: 82.5%
+}
+
+
+footer {
+    width: 100%;
+    text-align: center;
+    height: ;
+    background-color: aliceblue;
+    justify-self: end;
+}

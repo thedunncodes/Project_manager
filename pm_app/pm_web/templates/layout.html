@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ Title }} </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='layout.css') }}">
+</head>
+<body>
+  <!-- Next time your are building this make sure all the contents depend on one div for height 100%,
+  Don't leave a div hanging outside -->
+    <header class="pm-header">
+        <div class="pm-logo">
+            <div class="pm-logo-base">
+              <img src="{{ url_for('static', filename='images/pm-web-logo.png') }}" alt="Home - project management logo">
+            </div>
+        </div>
+        <div class="pm-link-base">
+            <div class="pm-links">
+              <a href="#" id="">Pricing</a>
+              <a href="#" id="">About</a>
+              <a href="#" id="">Contact</a>
+            </div>
+        </div>
+        <div class="pm-auth-base">
+            {% if current_user.is_authenticated %}
+            <div class="pm-log-out"><a href="{{ url_for('logout') }}">Log out</a></div>
+            {% endif %}
+            <div class="pm-auth">
+              <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR24NpDXqqCdmRomTS_tAZrAPMfXSvm-tV8-5lrqumSjYadHVXN" alt="account">
+            </div>
+        </div>
+    </header>
+    <main class="pm-body">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+        {% endwith %}
+        <div class="pm-body-host1">
+          <aside class="pm-menu">
+            <ul>
+              <li><a href="#">hallo</a></li>
+              <li><a href="#">hallo</a></li>
+              <li><a href="#">hallo</a></li>
+              <li><a href="#">hallo</a></li>
+            </ul>
+            <footer>
+              test
+            </footer>
+          </aside>
+          <article class="pm-page">
+            <section class="pm-search">
+              <form action="">
+                <input type="text" name="search-bar" placeholder="Search your projects" required>
+                <button type="submit">Search</button>
+              </form>
+            </section>
+            {% block home %}{% endblock %}
+          </article>
+        </div>
+    </main>
+</body>
+</html>
