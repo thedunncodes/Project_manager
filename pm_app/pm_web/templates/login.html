@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
     <title>PM - Sign Up</title>
 </head>
 <body>
-    <main>
-        <div class="form">
+    <main class="container">
+        <div class="pm-login-form card">
+            <h2>Login</h2>
             {% with messages = get_flashed_messages(with_categories=true) %}
               {% if messages %}
                 {% for category, message in messages %}
@@ -19,37 +21,31 @@
             {% endwith %}
             <form method="POST" action="">
                 {{ form.hidden_tag() }}
-                <div class="form-group">
                     {{ form.email.label }}
                     {%  if form.email.errors %}
-                        {{ form.email }}
+                        {{ form.email(placeholder="Your email") }}
                         <div class="err">
-                            <b>Wrong email</b>
+                            <!-- <b>Wrong email</b> -->
                             {% for error in form.email.errors %}
                                 <b> {{ error }} </b>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.email }}
+                        {{ form.email(placeholder="Your email") }}
                     {% endif %}
-                </div>
-                <div class="form-group">
                     {{ form.password.label }}
                     {%  if form.password.errors %}
-                        {{ form.password }}
+                        {{ form.password(placeholder="Your password") }}
                         <div class="err">
-                            <b>Passwords do not match</b>
+                            <!-- <b>Passwords do not match</b> -->
                             {% for error in form.password.errors %}
                                 <b> {{ error }} </b>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.password }}
+                        {{ form.password(placeholder="Your password") }}
                     {% endif %}
-                </div>
-                <div class="form-group">
                     {{ form.submit }}
-                </div>
             </form>
         </div>
     </main>

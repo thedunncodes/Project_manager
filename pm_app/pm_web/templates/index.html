@@ -1,13 +1,57 @@
 {% extends "layout.html" %}
 
-{% block home%}
-
-<form action="">
-    <fieldset>
-        <legend>Do you agree to the terms?</legend>
-        <label><input type="radio" name="radio" value="yes" /> Yes</label>
-        <label><input type="radio" name="radio" value="no" /> No</label>
-    </fieldset>
-</form>
-
-{% endblock home%}
+{% block page %}
+<div class="pm-homepage-layout">
+    <div class="pm-homepage">
+        <div class="pm-home-col1">
+            <div class="col1-header">
+                HAllo
+            </div>
+            kkrakx
+        </div>
+        <div class="pm-col1-form">
+            <div class="pm-project-form">
+                <div class="container">
+                    <div class="card">
+                        <h2> Create project </h2>
+                        <form method="POST" action="">
+                            {{ form.hidden_tag() }}
+                                {{ form.project_name.label }}
+                                {%  if form.project_name.errors %}
+                                    {{ form.project_name }}
+                                    <div class="err">
+                                        <b>project_names do not match</b>
+                                        {% for error in form.project_name.errors %}
+                                            <b> {{ error }} </b>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.project_name }}
+                                {% endif %}
+                                {{ form.description.label }}
+                                {%  if form.description.errors %}
+                                    {{ form.description }}
+                                    <div class="err">
+                                        <b>descriptions do not match</b>
+                                        {% for error in form.description.errors %}
+                                            <b> {{ error }} </b>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.description }}
+                                {% endif %}
+                                {{ form.create }}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pm-home-col2">
+            kkrakx
+        </div>
+        <div class="pm-home-col3">
+            {{ user }}, {{ user.email }}
+        </div>
+    </div>
+</div>
+{% endblock page %}

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {{ Title }} </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='boards.css') }}">
 </head>
 <body>
   <!-- Next time your are building this make sure all the contents depend on one div for height 100%,
@@ -43,26 +45,35 @@
         {% endwith %}
         <div class="pm-body-host1">
           <aside class="pm-menu">
+            <div class="pm-workspace">
+              <img src="{{ url_for('static', filename='images/pm-logo-3.PNG') }}" alt="PM logo">
+              <div class="pm-workspace-description">
+                Your Workspace
+              </div>
+            </div>
+            <span class="pm-line-break"></span>
             <ul>
-              <li><a href="#">hallo</a></li>
-              <li><a href="#">hallo</a></li>
-              <li><a href="#">hallo</a></li>
-              <li><a href="#">hallo</a></li>
+              <li><a href="{{ url_for('home') }}" class="page_focus1">Your Dashboard</a></li>
+              <li><a href="{{ url_for('projects') }}" class="page_focus2"> Projects </a></li>
+              <li><a href="{{ url_for('boards') }}" class="page_focus3"> Boards </a></li>
+              <li><a href="#" class="page_focus4">Team chat</a></li>
             </ul>
-            <footer>
+            <!-- <footer>
               test
-            </footer>
+            </footer> -->
           </aside>
           <article class="pm-page">
             <section class="pm-search">
               <form action="">
-                <input type="text" name="search-bar" placeholder="Search your projects" required>
+                <input type="text" name="search-bar" placeholder="Your Projects" required>
                 <button type="submit">Search</button>
               </form>
             </section>
-            {% block home %}{% endblock %}
+            {% block page %}{% endblock %}
           </article>
         </div>
     </main>
+    <script src="{{ url_for('static', filename='app/boards.js') }}"></script>
+    <script src="{{ url_for('static', filename='app/project_form.js') }}"></script>
 </body>
 </html>

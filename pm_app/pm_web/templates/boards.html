@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block page %}
+    <div class="pm_boards_page">
+        <div class="pm_boards_container">
+            <div class="pm_boards">
+                {% for project_object in projects %}
+                    <div class="pm_boards_card">
+                        <div class="board_header" style="background-color: {{ color }};" >
+                            {{ project_object.project_name }} 
+                        </div>
+                        <div class="task_label">empty</div>
+                        <div class="task-label">Tasks</div>
+                        <div class="task-label">Priority</div>
+                        <div class="task-label">Status</div>
+                        <div class="task_checkbox">shpax</div>
+                        <div class="task_content">
+                            {{ project_object.description }}
+                        </div>
+                        <div class="task_priority">high</div>
+                        <div class="task_status">ongoing</div>
+                    </div>
+                    <div class="add_board_task ">
+                        <div class="add_task">
+                            Add a new task
+                             <div class="add_task_icon" href="">
+                                <svg width="64" height="64" class="add_task_icon1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="currentColor" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0m149.3 277.3c0 11.8-9.5 21.3-21.3 21.3h-85.3V384c0 11.8-9.5 21.3-21.3 21.3h-42.7c-11.8 0-21.3-9.6-21.3-21.3v-85.3H128c-11.8 0-21.3-9.6-21.3-21.3v-42.7c0-11.8 9.5-21.3 21.3-21.3h85.3V128c0-11.8 9.5-21.3 21.3-21.3h42.7c11.8 0 21.3 9.6 21.3 21.3v85.3H384c11.8 0 21.3 9.6 21.3 21.3z"/>
+                                </svg>
+                                <div class="task_form_layout {{ project_object.id }}">
+                                    <div class="task_form">
+                                        <div class="task_form_body">
+                                            <div class="task_form_container">
+                                                <div class="task_form_card">
+                                                    <h2> Create your tasks </h2>
+                                                    <form method="POST" action="{{ url_for('boards_task', board=project_object.id) }}">
+                                                        {{ form.hidden_tag() }}
+                                                        {{ form.task.label }}
+                                                        {%  if form.task.errors %}
+                                                            {{ form.task(placeholder="Your task") }}
+                                                            <div class="err">
+                                                                <!-- <b>Wrong task</b> -->
+                                                                {% for error in form.task.errors %}
+                                                                    <b> {{ error }} </b>
+                                                                {% endfor %}
+                                                            </div>
+                                                        {% else %}
+                                                        {{ form.task(placeholder="Your task") }}
+                                                        {% endif %}
+                                                        {{ form.priority.label }}
+                                                        {%  if form.priority.errors %}
+                                                            {{ form.priority(placeholder="Your priority") }}
+                                                            <div class="err">
+                                                                <!-- <b>Wrong priority</b> -->
+                                                                {% for error in form.priority.errors %}
+                                                                    <b> {{ error }} </b>
+                                                                {% endfor %}
+                                                            </div>
+                                                        {% else %}
+                                                            {{ form.priority(placeholder="choose your priority") }}
+                                                        {% endif %}
+                                                        {{ form.create }}
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock page %}
+
+<div class="container">
+    <div class="card">
+      <h2>Login</h2>
+      <form>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+  
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+  
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
