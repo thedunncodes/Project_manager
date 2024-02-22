@@ -136,8 +136,8 @@ body {
     padding: 10px;
     background-color: white;
     flex-direction: column;
-    justify-content: space-between;
-    height: 90%;
+    justify-content: space-betwen;
+    height: 100%;
     border-radius: 10px;
     box-shadow: 1px 3px 5px 1px rgb(202, 201, 201), -1px -2px 5px rgb(202, 201, 201);
 }
@@ -149,10 +149,13 @@ body {
     padding: 0;
     text-align: center;
     width: 100%;
+    grid-gap: 0.625rem;
 }
 
 .pm-menu ul li {
-    
+    height: 2.5rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .pm-menu ul li a {
@@ -165,22 +168,82 @@ body {
     color: rgb(28, 28, 28);
 }
 
-.pm-menu ul li a:hover {
-    background-color: aqua;
-    color: white;
+.pm_focus_toggle {
+    background-image: linear-gradient(to right, white, rgba(42, 66, 139, 0.196));
+    border-right: 5px solid rgb(139, 42, 107);
+    outline: none;
+}
+
+.pm-workspace {
+    display: grid;
+    justify-content: center;
+}
+
+.pm-workspace img {
+    object-fit: cover;
+    object-position: ;
+    width: 61.6px;
+    height: 72.8px;
+    justify-self: center;
+}
+
+.pm-line-break {
+    width: 100%;
+    height: 0.09rem;
+    background-color: gainsboro;
+    border-radius: 3rem;
+    margin: 1.5rem 0;
 }
 
 .pm-search {
-    border: 1px solid red;
-    height: 2.5rem;
+    borer: 1px solid red;
+    height: 2.55rem;
+    display: flex;
+    justify-content: center;
 }
 
 .pm-search form {
-    background-color: blue;
+    background-color: white;
+    height: 100%;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 12px 4px 12px;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.pm-search form input[type=text] {
+    /* background-color: rebeccapurple; */
+    width: 89%;
+    outline: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 530;
+}
+.pm-search form button {
+    /* background-color: rebeccapurple; */
+    border: none;
+    outline: none;
+    border-radius: 32px;
+    box-sizing: border-box;
+    padding: 0 32px;
+    font-weight: 530;
+    cursor: pointer;
+    box-shadow: 2.5px 2.5px black, 3px 3px 0.5px gray;
+    transition: ease-in-out 300ms;
+    margin-bottom: 2px;
+}
+
+
+.pm-search form button:focus {
+    padding: 0 30px;
+    box-shadow: 1px 1px black, 1.5px 1.5px 0.5px gray;;
+    
 }
 
 .pm-page {
-    width: 82.5%
+    width: 82%
 }
 
 
