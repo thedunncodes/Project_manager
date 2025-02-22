@@ -110,7 +110,7 @@ def login():
         if User and User.email == form.email.data:
             login_user(User)
             next_page = request.args.get('next')
-            flash(f'{User.name} {next_page}you have a succesful login')
+            # flash(f'{User.name} {next_page}you have a succesful login')
             return redirect(next_page) if next_page else redirect(url_for("home"))
         else:
             flash('Login terminated')
@@ -126,8 +126,8 @@ def register():
     if form.validate_on_submit():
         User = user(name=form.name.data, email=form.email.data, password=form.password.data)
         User.save()
-        flash(f'{form.name.data}, Login sucessful. Please check email and password', 'danger')
-        return redirect(url_for("home"))
+        flash(f'{form.name.data}, Account creation sucessful, proceed to log in.')
+        return redirect(url_for("login"))
     return render_template('register.html', form=form)
 
 @app.route("/logout", methods=['GET','POST'])

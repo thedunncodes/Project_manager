@@ -9,6 +9,7 @@ body {
     background-size: cover;
     backdrop-filter: blur(0.3125rem);
     height: 100vh;
+    color: rgb(28, 28, 28);
 }
 /* <----------------------------------HEADER CSS------------------------------------> */
 .pm-header {
